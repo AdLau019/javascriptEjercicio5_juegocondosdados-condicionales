@@ -1,21 +1,22 @@
-/*TENEMOS UN JUEGO EN EL QUE SE USAN DOS DADOS, Y LAS REGLAS SON LAS SIGUIENTES:
+/*  Si el uniforme es gris, pertenece al equipo 1.
+    Si es negro, pertenece al equipo 2.
+    Si es azul, pertenece al equipo 3.
+    Cualquier otro color, no tienen equipo (no juega).*/
 
-El juego se gana si se obtiene alguno de los siguientes puntajes:7, 11, 3.
-Se obtiene una tirada extra con las siguientes condiciones: 
-*Obteniendo dos números iguales.
-*Obteniendo un número divisible entre 3, pero que no sea 3.*/
-
-let evaluateGame = (d1, d2) => {
-  let addnumbers = d1 + d2;
-  if (addnumbers === 7 || addnumbers === 11 || addnumbers === 3) {
-    return "Ganaste el juego :)";
-  }
-  if (d1 === d2 || (addnumbers % 3 === 0 && addnumbers !== 3)) {
-    return "Obtuviste una tirada extra :)";
+let playerTeam = (coloruniform) => {
+  switch (coloruniform) {
+    case "gris":
+      return "Pertenece al equipo 1";
+    case "negro":
+      return "Pertenece al equipo 2";
+    case "azul":
+      return "Pertenece al equipo 3";
+    default:
+      return "No tiene equipo (no juega).";
   }
 };
 
-console.log(evaluateGame(4, 3));
-console.log(evaluateGame(6, 5));
-console.log(evaluateGame(2, 1));
-console.log(evaluateGame(6, 6));
+console.log(playerTeam("gris"));
+console.log(playerTeam("negro"));
+console.log(playerTeam("azul"));
+console.log(playerTeam("rojo"));
